@@ -101,11 +101,11 @@ def all_gather(data):
     # serialized to a Tensor
     buffer = pickle.dumps(data)
     storage = torch.ByteStorage.from_buffer(buffer)
-    tensor = torch.ByteTensor(storage).to("cuda")
+    tensor = torch.ByteTensor(storage).to("cpu")
 
     # obtain Tensor size of each rank
-    local_size = torch.LongTensor([tensor.numel()]).to("cuda")
-    size_list = [torch.LongTensor([0]).to("cuda") for _ in range(world_size)]
+    local_size = torch.LongTensor([tensor.numel()]).to("cpu")
+    size_list = [torch.LongTensor([0]).to("cpu") for _ in range(world_size)]
     dist.all_gather(size_list, local_size)
     size_list = [int(size.item()) for size in size_list]
     max_size = max(size_list)
@@ -115,9 +115,9 @@ def all_gather(data):
     # gathering tensors of different shapes
     tensor_list = []
     for _ in size_list:
-        tensor_list.append(torch.ByteTensor(size=(max_size,)).to("cuda"))
+        tensor_list.append(torch.ByteTensor(size=(max_size,)).to("cpu"))
     if local_size != max_size:
-        padding = torch.ByteTensor(size=(max_size - local_size,)).to("cuda")
+        padding = torch.ByteTensor(size=(max_size - local_size,)).to("cpu")
         tensor = torch.cat((tensor, padding), dim=0)
     dist.all_gather(tensor_list, tensor)
 

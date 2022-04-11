@@ -18,12 +18,12 @@ import time
 def inference(net, data_label, use_aux):
     if use_aux:
         img, cls_label, seg_label = data_label
-        img, cls_label, seg_label = img.cuda(), cls_label.long().cuda(), seg_label.long().cuda()
+        img, cls_label, seg_label = img.cpu(), cls_label.long().cpu(), seg_label.long().cpu()
         cls_out, seg_out = net(img)
         return {'cls_out': cls_out, 'cls_label': cls_label, 'seg_out': seg_out, 'seg_label': seg_label}
     else:
         img, cls_label = data_label
-        img, cls_label = img.cuda(), cls_label.long().cuda()
+        img, cls_label = img.cpu(), cls_label.long().cpu()
         cls_out = net(img)
         return {'cls_out': cls_out, 'cls_label': cls_label}
 
@@ -112,7 +112,7 @@ def main():
     cls_num_per_lane = adv_cfg.cls_num_per_lane
 
     net = parsingNet(pretrained=True, backbone=cfg.backbone,
-                     cls_dim=(cfg.griding_num + 1, cls_num_per_lane, cfg.num_lanes), use_aux=cfg.use_aux).cuda()
+                     cls_dim=(cfg.griding_num + 1, cls_num_per_lane, cfg.num_lanes), use_aux=cfg.use_aux).cpu()
 
     if distributed:
         net = torch.nn.parallel.DistributedDataParallel(net, device_ids=[args.local_rank])

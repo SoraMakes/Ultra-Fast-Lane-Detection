@@ -49,7 +49,7 @@ def setup_net():
         backbone=cfg.backbone,
         cls_dim=(cfg.griding_num + 1, adv_cfg.cls_num_per_lane, cfg.num_lanes),
         use_aux=False
-    ).cuda()
+    ).cpu()
     # use_aux: It should be noted that our method only uses the auxiliary segmentation task in the training phase, and it would
     # be removed in the testing phase. In this way, even we added the extra segmentation task, the running speed of our
     # method would not be affected.
@@ -169,7 +169,7 @@ class FrameProcessor:
         """
         if self.measure_time: time1 = time.time()
         with torch.no_grad():  # no_grad: disable gradient calculation. Reduces (gpu) memory consumption
-            y = self.net(frames.cuda())
+            y = self.net(frames.cpu())
         if self.measure_time: time2 = time.time()
         self.output_method(y, names, source_frames)
 
