@@ -1,7 +1,7 @@
 # Ultra-Fast-Lane-Detection
-We adopted the [Ultra Fast Lane Detection](https://github.com/cfzd/Ultra-Fast-Lane-Detection) project for the autonomous model vehicle of our university. Our results can be found on the projects [Github page](https://glutamat42.github.io/Ultra-Fast-Lane-Detection/).
+We adopted the [Ultra Fast Lane Detection](https://github.com/cfzd/Ultra-Fast-Lane-Detection) project for the autonomous model vehicle of our university. Our results can be found on the projects [Github page](https://SoraMakes.github.io/Ultra-Fast-Lane-Detection/).
 
-Our project around dataset generation using [CARLA](https://carla.org/) can be [found here](https://github.com/Glutamat42/Carla-Lane-Detection-Dataset-Generation).
+Our project around dataset generation using [CARLA](https://carla.org/) can be [found here](https://github.com/SoraMakes/Carla-Lane-Detection-Dataset-Generation).
 
 ## Project overview
 The source code of this project is based on the original project (see link above). The reworked project is splitted into two parts
@@ -12,5 +12,5 @@ The scripts directory contains many scripts "around" the project, eg to convert/
 
 
 ## Further documentation
-For Install / getting started / HOWTOs / etc please see the **full documentation** in the docs directory or the [hosted version](https://glutamat42.github.io/Ultra-Fast-Lane-Detection/ld_docs/).
+For Install / getting started / HOWTOs / etc please see the **full documentation** in the docs directory or the [hosted version](https://SoraMakes.github.io/Ultra-Fast-Lane-Detection/ld_docs/).
 

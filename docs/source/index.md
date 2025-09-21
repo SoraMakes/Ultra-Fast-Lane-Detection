@@ -52,7 +52,7 @@ For further examples see [HOWTOs](./howto/howtos.md)
 
 CARLA is one way to get training and test data. Sadly CARLA doesn't provide the required information over its API. As a
 result it's quite complicated to generate a dataset from CARLA. We wrote some scripts which make this possible. These 
-are located in a separate [project on Github](https://github.com/Glutamat42/Carla-Lane-Detection-Dataset-Generation) folder. 
+are located in a separate [project on Github](https://github.com/SoraMakes/Carla-Lane-Detection-Dataset-Generation) folder. 
 Also have a look [on this HOWTO](<carla_ds:howto/generate_dataset_from_carla>) which explains their usage.
 
 ## HOWTOs
