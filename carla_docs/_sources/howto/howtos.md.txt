@@ -3,7 +3,7 @@ The Howtos will guide you through the whole process starting with the collection
 
 ## Setup
 [CARLA Setup](./carla_setup.md)    
-[UFLD Setup](https://glutamat42.github.io/Ultra-Fast-Lane-Detection/ld_docs/howto/setup.html)
+[UFLD Setup](https://soramakes.github.io/Ultra-Fast-Lane-Detection/ld_docs/howto/setup.html)
 
 ## Create dataset
 [Collect data from CARLA](./generate_dataset_from_carla.md)
